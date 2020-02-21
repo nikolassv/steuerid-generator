@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steueridentifikationsnummer - Beispielgenerator</title>
+
+    <style>
+        body {
+            background: #415281;
+            color: #b9c8cd;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            height: 90vh;
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+        }
+
+        #example-steuer-id {
+            margin-top: 10px;
+            font-size: 72pt;
+            font-weight: bold;
+            font-family: "Arial Black", sans-serif;
+        }
+
+        #new-id {
+            font-size: 24pt;
+            padding: 0.5em 0.7em;
+            border: none;
+            border-radius: 0.5em;
+
+            background: #c1c9df;
+            color: #283557;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            #example-steuer-id {
+                font-size: 48pt;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Steuerliche Identifikationsnummer (Beispiel)</h1>
+
+    <p id="example-steuer-id"></p>
+    <button
+            id="new-id"
+    >Neu generieren</button>
+
+    <script src="steuerId.js"></script>
+    <script>
+        const element = document.getElementById('example-steuer-id');
+
+        document.getElementById('new-id').onclick = regenerate;
+
+        regenerate();
+
+        function regenerate() {
+            const digits = createSteuerIdDigits();
+            element.innerText = digits.join('');
+        }
+    </script>
+</body>
+</html>
