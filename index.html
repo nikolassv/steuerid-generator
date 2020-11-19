@@ -9,6 +9,8 @@
             background: #415281;
             color: #b9c8cd;
 
+            font-family: "Arial Black", sans-serif;
+
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -25,7 +27,6 @@
             margin-top: 10px;
             font-size: 72pt;
             font-weight: bold;
-            font-family: "Arial Black", sans-serif;
         }
 
         #new-id {
@@ -44,6 +45,18 @@
                 font-size: 48pt;
             }
         }
+
+        footer {
+            margin-top: 3em;
+        }
+
+        a {
+            color: cornflowerblue;
+        }
+
+        a:visited {
+            color: #7969a9;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +67,8 @@
     <button
             id="new-id"
     >Neu generieren</button>
+
+    <footer>Von <a href="http://nikolassv.de" target="_blank">Nikolas Schmidt-Voigt</a></footer>
 
     <script src="steuerId.js"></script>
     <script>
