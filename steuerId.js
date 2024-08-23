@@ -25,6 +25,22 @@ function remove(arr, n) {
     }
 }
 
+function hasThreeEqualDigitsInARow(arr) {
+    let last = -1;
+    let n = 1;
+
+    for (let i = 0; i < arr.length && n < 3; i++) {
+        if (arr[i] === last) {
+            n += 1;
+        } else {
+            last = arr[i];
+            n = 1;
+        }
+    }
+
+    return n === 3;
+}
+
 function getFirstTenDigits() {
     const digits = [];
     for (let i = 0; i < 10; i++) {
@@ -36,15 +52,18 @@ function getFirstTenDigits() {
     if (Math.random() > 0.5) {
         remove(digits, 1);
         doubleElement(digits);
+        shuffle(digits);
     } else {
         remove(digits, 2);
         trippleElement(digits);
+
+        do {
+            shuffle(digits);
+        } while(hasThreeEqualDigitsInARow(digits));
     }
 
-    shuffle(digits);
-
     // the first digit must not be 0
-    if (digits[0] === 0) {
+    while (digits[0] === 0) {
         digits.push(digits.shift())
     }
 
